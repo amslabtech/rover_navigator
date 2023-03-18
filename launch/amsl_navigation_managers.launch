@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="map_path" default="$(find rover_navigator)/config/amsl_navigation_managers/map/dkan_map.yaml"/>
+    <arg name="checkpoint_path" default="$(find rover_navigator)/config/amsl_navigation_managers/checkpoint/dkan_checkpoint.yaml"/>
+    <!-- <arg name="task_list_path" default="$(find amsl_navigation_managers)/sample/task/sample_task.yaml"/> -->
+    <arg name="enable_task" default="false"/>
+    <arg name="hz" default="10"/>
+
+    <node pkg="amsl_navigation_managers" type="node_edge_map_manager.py" name="node_edge_map_manager" ns="navigation_managers">
+        <param name="MAP_PATH" value="$(arg map_path)"/>
+        <param name="HZ" value="$(arg hz)"/>
+    </node>
+
+    <node pkg="amsl_navigation_managers" type="checkpoint_manager.py" name="checkpoint_manager" ns="navigation_managers">
+        <param name="CHECKPOINT_PATH" value="$(arg checkpoint_path)"/>
+        <param name="HZ" value="$(arg hz)"/>
+    </node>
+
+    <!-- <node pkg="amsl_navigation_managers" type="task_manager.py" name="task_manager" ns="navigation_managers" if="$(arg enable_task)"> -->
+    <!--     <param name="TASK_LIST_PATH" value="$(arg task_list_path)"/> -->
+    <!-- </node> -->
+
+</launch>

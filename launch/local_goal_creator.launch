@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="map_file" default="/home/amsl/rwrc22/map/graph/rwrc22_ikuta_map_2goukann.yaml"/>
+    <arg name="checkpoint_file" default="/home/amsl/rwrc22/map/checkpoint/rwrc22_ikuta_2goukann_checkpoint.yaml"/>
+    <arg name="stopline_file" default="/home/amsl/rwrc22/map/stop/rwrc22_ikuta_stop.yaml"/>
+    <arg name="start_node_id" default="39" />
+    <arg name="goal_node_id" default="39" />
+
+    <node pkg="local_goal_creator" type="local_goal_creator_node" name="local_goal_creator_node" >
+        <param name="start_node" value="$(arg start_node_id)" />
+        <param name="goal_node" value="$(arg goal_node_id)" />
+        <param name="local_goal_interval" value="0.2" />
+        <param name="pass_through_radius" value="5.0" />
+        <param name="stop_node_radius" value="1.5" />
+        <remap from="/checkpoint" to="/node_edge_map/checkpoint" />
+        <remap from="/node_edge_map" to="/node_edge_map/map" />
+        <remap from="/current_pose" to="/amcl_pose" />
+    </node>
+
+    <node pkg="local_goal_creator" type="stop_flag_manager_node" name="stop_flag_manager_node" >
+        <rosparam command="load" file="$(arg stopline_file)" />
+        <remap from="/current_node" to="/current_checkpoint" />
+        <remap from="stop_flag" to="/task/stop" />
+    </node>
+
+    <node pkg="amsl_navigation_managers" type="node_edge_map_manager.py" name="node_edge_map_manager" ns="navigation_managers">
+        <param name="MAP_PATH" value="$(arg map_file)" />
+        <param name="HZ" value="10" />
+    </node>
+
+    <node pkg="amsl_navigation_managers" type="checkpoint_manager.py" name="checkpoint_manager" ns="navigation_managers">
+        <param name="CHECKPOINT_PATH" value="$(arg checkpoint_file)" />
+        <param name="HZ" value="10" />
+    </node>
+
+</launch>
