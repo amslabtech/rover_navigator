@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="robot" value="robot_1" />
+
+    <group ns="$(arg robot)" >
+
+    <!-- dwa -->
+    <include file="$(find rover_navigator)/launch/local_planner.launch" />
+
+    </group>
+</launch>

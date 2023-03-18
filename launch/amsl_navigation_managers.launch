@@ -10,11 +10,19 @@
     <node pkg="amsl_navigation_managers" type="node_edge_map_manager.py" name="node_edge_map_manager" ns="navigation_managers">
         <param name="MAP_PATH" value="$(arg map_path)"/>
         <param name="HZ" value="$(arg hz)"/>
+        <remap from="/node_edge_map/viz/node" to="node_edge_map/viz/node" />
+        <remap from="/node_edge_map/viz/id" to="node_edge_map/viz/id" />
+        <remap from="/node_edge_map/viz/edge" to="node_edge_map/viz/edge" />
+        <remap from="/node_edge_map/map" to="node_edge_map/map" />
     </node>
 
     <node pkg="amsl_navigation_managers" type="checkpoint_manager.py" name="checkpoint_manager" ns="navigation_managers">
         <param name="CHECKPOINT_PATH" value="$(arg checkpoint_path)"/>
         <param name="HZ" value="$(arg hz)"/>
+        <remap from="/node_edge_map/viz/node/checkpoint" to="node_edge_map/viz/node/checkpoint" />
+        <remap from="/node_edge_map/checkpoint" to="node_edge_map/checkpoint" />
+        <remap from="/node_edge_map/viz/node" to="node_edge_map/viz/node" />
+        <remap from="/estimated_pose/edge" to="estimated_pose/edge" />
     </node>
 
     <!-- <node pkg="amsl_navigation_managers" type="task_manager.py" name="task_manager" ns="navigation_managers" if="$(arg enable_task)"> -->
