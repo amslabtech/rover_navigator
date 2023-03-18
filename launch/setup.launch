@@ -5,9 +5,20 @@
     <group ns="$(arg robot)" >
 
     <!-- devices -->
-    <!-- <include file="" /> -->
+    <!-- 各センサのtopic名はnamespaceを変更する必要あり -->
+        <!-- <include file="$(find megarover3)/launch/bringup_all.launch" > -->
+        <!--     <remap from="/rslidar_points" to="rslidar_points" /> -->
+        <!--     <remap from="/rover_odo" to="rover_odo" /> -->
+        <!--  -->
+        <!--     &#60;&#33;&#45;&#45; <remap from="/right_cam/realsense2_camera_manager/bond" to="right_cam/realsense2_camera_manager/bond" /> &#45;&#45;&#62; -->
+        <!--     &#60;&#33;&#45;&#45; <remap from="" to="" /> &#45;&#45;&#62; -->
+        <!--     &#60;&#33;&#45;&#45; <remap from="" to="" /> &#45;&#45;&#62; -->
+        <!--     &#60;&#33;&#45;&#45; <remap from="" to="" /> &#45;&#45;&#62; -->
+        <!--     &#60;&#33;&#45;&#45; <remap from="" to="" /> &#45;&#45;&#62; -->
+        <!-- </include> -->
 
     <!-- amcl -->
+    <!-- amclのlaunchファイルをrover_navigatorの中に作るか、元のファイルをもってくる -->
     <!-- <include file="$(find rover_navigator)/launch/" /> -->
 
     <!-- amsl navigation managers -->
@@ -20,6 +31,8 @@
     <include file="$(find rover_navigator)/launch/local_goal_creator.launch" />
 
     <!-- static tf -->
+    <!-- 暫定的にここに書いています -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="tf_baselink_to_lidar" args="-0.17 0 0.845 0 0 0 1 base_link rslidar" />
 
 
     </group>

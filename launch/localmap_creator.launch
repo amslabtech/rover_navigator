@@ -4,12 +4,12 @@
         <rosparam>
             hz: 10
             laser_names:
-                - velodyne
+                - rslidar
             map_width: 20
             map_height: 20
             map_resolution: 0.1
         </rosparam>
-        <remap from="/velodyne/scan" to="scan"/>
+        <remap from="/rslidar/scan" to="rslidar_scan"/>
         <remap from="/localmap" to="localmap"/>
     </node>
     <!-- tf -->
