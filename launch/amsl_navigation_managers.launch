@@ -7,7 +7,7 @@
     <arg name="enable_task" default="false"/>
     <arg name="hz" default="10"/>
 
-    <node pkg="amsl_navigation_managers" type="node_edge_map_manager.py" name="node_edge_map_manager" ns="navigation_managers">
+    <node pkg="amsl_navigation_managers" type="node_edge_map_manager.py" name="node_edge_map_manager" >
         <param name="MAP_PATH" value="$(arg map_path)"/>
         <param name="HZ" value="$(arg hz)"/>
         <remap from="/node_edge_map/viz/node" to="node_edge_map/viz/node" />
@@ -16,7 +16,7 @@
         <remap from="/node_edge_map/map" to="node_edge_map/map" />
     </node>
 
-    <node pkg="amsl_navigation_managers" type="checkpoint_manager.py" name="checkpoint_manager" ns="navigation_managers">
+    <node pkg="amsl_navigation_managers" type="checkpoint_manager.py" name="checkpoint_manager" >
         <param name="CHECKPOINT_PATH" value="$(arg checkpoint_path)"/>
         <param name="HZ" value="$(arg hz)"/>
         <remap from="/node_edge_map/viz/node/checkpoint" to="node_edge_map/viz/node/checkpoint" />
