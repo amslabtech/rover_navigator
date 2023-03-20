@@ -20,6 +20,7 @@
     <!-- amcl -->
     <!-- amclのlaunchファイルをrover_navigatorの中に作るか、元のファイルをもってくる -->
     <!-- <include file="$(find rover_navigator)/launch/" /> -->
+    <include file="$(find rover_localizer)/launch/mcl_3dl.launch"/>
 
     <!-- amsl navigation managers -->
     <include file="$(find rover_navigator)/launch/amsl_navigation_managers.launch" />
