@@ -16,4 +16,6 @@
         <remap from="/local_goal" to="local_goal" />
     </node>
 
+    <include file="$(find rover_navigator)/launch/amsl_navigation_managers.launch"/>
+
 </launch>

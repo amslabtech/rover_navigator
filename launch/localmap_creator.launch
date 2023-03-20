@@ -10,7 +10,7 @@
             map_resolution: 0.1
         </rosparam>
         <remap from="/rslidar/scan" to="rslidar_scan"/>
-        <remap from="/localmap" to="localmap"/>
+        <remap from="/localmap" to="local_map"/>
     </node>
     <include file="$(find rover_navigator)/launch/pointcloud_to_laserscan.launch"/>
     <!-- tf -->
