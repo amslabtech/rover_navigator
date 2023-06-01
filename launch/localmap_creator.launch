@@ -4,15 +4,18 @@
         <rosparam>
             hz: 10
             laser_names:
-                - rslidar
+              - robot1/rslidar
             map_width: 20
             map_height: 20
             map_resolution: 0.1
+            base_link_frame_id: robot1/base_link
         </rosparam>
-        <remap from="/rslidar/scan" to="rslidar_scan"/>
+        <remap from="rslidar/scan" to="rslidar_scan"/>
         <remap from="/localmap" to="local_map"/>
     </node>
-    <include file="$(find rover_navigator)/launch/pointcloud_to_laserscan.launch"/>
+    <include file="$(find rover_navigator)/launch/pointcloud_to_laserscan.launch">
+        <!-- <arg name="robot" value="$(arg robot)"/> -->
+    </include>
     <!-- tf -->
 <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_velodyne" output="screen" args="0 0 0 0 0 0 base_link velodyne"/> -->
 

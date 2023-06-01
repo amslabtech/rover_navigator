@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
     <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan_node" >
-        <remap from="cloud_in" to="/rslidar_points" />
+        <remap from="cloud_in" to="rslidar_points" />
         <remap from="scan" to="rslidar_scan" />
         <param name="min_height" value="-0.5" />
         <param name="max_height" value="1.0" />

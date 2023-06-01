@@ -2,7 +2,8 @@
 <launch>
 
     <arg name="map_path" default="$(find rover_navigator)/config/amsl_navigation_managers/map/dkan_map.yaml"/>
-    <arg name="checkpoint_path" default="$(find rover_navigator)/config/amsl_navigation_managers/checkpoint/dkan_checkpoint.yaml"/>
+    <arg name="checkpoint_path" default="$(find rover_navigator)/config/amsl_navigation_managers/checkpoint/dkan_10loop.yaml"/>
+    <!-- <arg name="checkpoint_path" default="$(find rover_navigator)/config/amsl_navigation_managers/checkpoint/dkan_checkpoint.yaml"/> -->
     <!-- <arg name="task_list_path" default="$(find amsl_navigation_managers)/sample/task/sample_task.yaml"/> -->
     <arg name="enable_task" default="false"/>
     <arg name="hz" default="10"/>

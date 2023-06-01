@@ -15,7 +15,7 @@
         <!-- <remap from="/scan" to="/front_laser/scan"/> -->
         <remap from="/local_goal" to="local_goal"/>
         <!-- <remap from="/cmd_vel" to="local_path/cmd_vel"/> -->
-        <remap from="/cmd_vel" to="/cmd_vel"/>
+        <remap from="/cmd_vel" to="cmd_vel"/>
         <remap from="/odom" to="odom"/>
         <remap from="/target_velocity" to="target_velocity" />
     </node>

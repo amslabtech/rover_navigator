@@ -1,4 +1,4 @@
-ROBOT_FRAME: "base_link"
+ROBOT_FRAME: "robot1/base_link"
 MAX_VELOCITY: 0.5
 MIN_VELOCITY: 0.0
 MAX_YAWRATE: 0.8
